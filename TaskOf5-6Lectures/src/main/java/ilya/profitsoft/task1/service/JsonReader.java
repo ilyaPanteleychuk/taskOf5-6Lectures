@@ -1,4 +1,4 @@
-package ilya.profitsoft;
+package ilya.profitsoft.task1.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +19,7 @@ public class JsonReader {
     private static final ReentrantLock lock = new ReentrantLock();
     
     public void calculateCurrentFile(File file){
+        //regex to find json from till closing }
         String regex = "(.*}).*";
         Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
         ObjectMapper objectMapper = new ObjectMapper();
@@ -30,6 +31,7 @@ public class JsonReader {
                 fileContent = fileContent.concat(currentLine);
                 Matcher jsonMatcher = pattern.matcher(fileContent);
                 while (jsonMatcher.find()){
+                    //to let objectMapper.readTree works correctly
                     fileContent = fileContent.replace("[", "")
                             .replace("]", "");
                     JsonNode jsonNode = objectMapper.readTree(fileContent);
