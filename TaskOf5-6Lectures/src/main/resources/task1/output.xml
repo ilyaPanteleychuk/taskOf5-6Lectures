@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fines>
+    <fine>
+        <title>SPEEDING</title>
+        <amount>1518230.0</amount>
+    </fine>
+    <fine>
+        <title>UNFASTENED SEATBELT</title>
+        <amount>1.24055E7</amount>
+    </fine>
+</fines>
